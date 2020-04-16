@@ -1,0 +1,59 @@
+18:24:04 **** Incremental Build of configuration Debug for project OV9655_Camera ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:121:34: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+   LCD_DisplayStringLine(LINE(2), "   Camera Init..");
+                                  ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:126:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(2), "                ");
+                                    ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:166:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(2), "Camera Init.. fails");
+                                    ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:167:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(4), "Check the Camera HW ");
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:168:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(5), "  and try again ");
+                                    ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: OV9655_Camera.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "OV9655_Camera.elf" @"objects.list"   -lm
+Finished building target: OV9655_Camera.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "OV9655_Camera.elf" "OV9655_Camera.hex"
+arm-none-eabi-size "OV9655_Camera.elf"
+   text	   data	    bss	    dec	    hex	filename
+  32936	    236	   3436	  36608	   8f00	OV9655_Camera.elf
+ 
+
+18:24:07 Build Finished (took 2s.590ms)
+

@@ -1,0 +1,512 @@
+18:21:33 **** Clean-only build of configuration Debug for project OV9655_Camera ****
+make clean 
+rm -rf *
+ 
+18:21:37 **** Build of configuration Debug for project OV9655_Camera ****
+make all 
+Building file: ../startup/startup_stm32f407xx.s
+Invoking: MCU GCC Assembler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -g -o "startup/startup_stm32f407xx.o" "../startup/startup_stm32f407xx.s"
+Finished building: ../startup/startup_stm32f407xx.s
+ 
+Building file: ../Src/bmp.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/bmp.d" -MT"Src/bmp.o" -o "Src/bmp.o" "../Src/bmp.c"
+../Src/bmp.c: In function 'Capture_Image_TO_Bmp':
+../Src/bmp.c:101:26: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   sprintf(file_str, "pic%d.bmp",pic_counter);
+                         ~^
+                         %ld
+../Src/bmp.c:110:40: warning: passing argument 4 of 'f_write' from incompatible pointer type [-Wincompatible-pointer-types]
+   ret = f_write(&file, bmp_header, 70, &bw);
+                                        ^
+In file included from ../Src/bmp.c:23:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/ff.h:408:9: note: expected 'UINT * {aka unsigned int *}' but argument is of type 'uint32_t * {aka long unsigned int *}'
+ FRESULT f_write (FIL*, const void*, UINT, UINT*); /* Write data to a file */
+         ^~~~~~~
+../Src/bmp.c:122:42: warning: passing argument 4 of 'f_write' from incompatible pointer type [-Wincompatible-pointer-types]
+     ret = f_write(&file, image_buf, 640, &bw);
+                                          ^
+In file included from ../Src/bmp.c:23:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/ff.h:408:9: note: expected 'UINT * {aka unsigned int *}' but argument is of type 'uint32_t * {aka long unsigned int *}'
+ FRESULT f_write (FIL*, const void*, UINT, UINT*); /* Write data to a file */
+         ^~~~~~~
+../Src/bmp.c: In function 'get_pic_count':
+../Src/bmp.c:192:60: warning: passing argument 4 of 'f_write' from incompatible pointer type [-Wincompatible-pointer-types]
+       ret = f_write(&file, &pic_counter, sizeof(uint32_t), &bw);
+                                                            ^
+In file included from ../Src/bmp.c:23:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/ff.h:408:9: note: expected 'UINT * {aka unsigned int *}' but argument is of type 'uint32_t * {aka long unsigned int *}'
+ FRESULT f_write (FIL*, const void*, UINT, UINT*); /* Write data to a file */
+         ^~~~~~~
+../Src/bmp.c:202:57: warning: passing argument 4 of 'f_read' from incompatible pointer type [-Wincompatible-pointer-types]
+     ret = f_read(&file, &pic_counter, sizeof(uint32_t), &bw);
+                                                         ^
+In file included from ../Src/bmp.c:23:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/ff.h:400:9: note: expected 'UINT * {aka unsigned int *}' but argument is of type 'uint32_t * {aka long unsigned int *}'
+ FRESULT f_read (FIL*, void*, UINT, UINT*);   /* Read data from a file */
+         ^~~~~~
+../Src/bmp.c: In function 'set_pic_count':
+../Src/bmp.c:228:58: warning: passing argument 4 of 'f_write' from incompatible pointer type [-Wincompatible-pointer-types]
+     ret = f_write(&file, &pic_counter, sizeof(uint32_t), &bw);
+                                                          ^
+In file included from ../Src/bmp.c:23:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/ff.h:408:9: note: expected 'UINT * {aka unsigned int *}' but argument is of type 'uint32_t * {aka long unsigned int *}'
+ FRESULT f_write (FIL*, const void*, UINT, UINT*); /* Write data to a file */
+         ^~~~~~~
+Finished building: ../Src/bmp.c
+ 
+Building file: ../Src/dcmi_ov9655.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/dcmi_ov9655.d" -MT"Src/dcmi_ov9655.o" -o "Src/dcmi_ov9655.o" "../Src/dcmi_ov9655.c"
+Finished building: ../Src/dcmi_ov9655.c
+ 
+Building file: ../Src/diskio.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/diskio.d" -MT"Src/diskio.o" -o "Src/diskio.o" "../Src/diskio.c"
+Finished building: ../Src/diskio.c
+ 
+Building file: ../Src/ff.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/ff.d" -MT"Src/ff.o" -o "Src/ff.o" "../Src/ff.c"
+Finished building: ../Src/ff.c
+ 
+Building file: ../Src/fonts.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/fonts.d" -MT"Src/fonts.o" -o "Src/fonts.o" "../Src/fonts.c"
+Finished building: ../Src/fonts.c
+ 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:121:34: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+   LCD_DisplayStringLine(LINE(2), "   Camera Init..");
+                                  ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:126:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(2), "                ");
+                                    ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:166:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(2), "Camera Init.. fails");
+                                    ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:167:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(4), "Check the Camera HW ");
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:168:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(5), "  and try again ");
+                                    ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building file: ../Src/misc.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/misc.d" -MT"Src/misc.o" -o "Src/misc.o" "../Src/misc.c"
+Finished building: ../Src/misc.c
+ 
+Building file: ../Src/stm32f4_discovery.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4_discovery.d" -MT"Src/stm32f4_discovery.o" -o "Src/stm32f4_discovery.o" "../Src/stm32f4_discovery.c"
+Finished building: ../Src/stm32f4_discovery.c
+ 
+Building file: ../Src/stm32f4_discovery_lcd.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4_discovery_lcd.d" -MT"Src/stm32f4_discovery_lcd.o" -o "Src/stm32f4_discovery_lcd.o" "../Src/stm32f4_discovery_lcd.c"
+Finished building: ../Src/stm32f4_discovery_lcd.c
+ 
+Building file: ../Src/stm32f4_discovery_lis302dl.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4_discovery_lis302dl.d" -MT"Src/stm32f4_discovery_lis302dl.o" -o "Src/stm32f4_discovery_lis302dl.o" "../Src/stm32f4_discovery_lis302dl.c"
+Finished building: ../Src/stm32f4_discovery_lis302dl.c
+ 
+Building file: ../Src/stm32f4_discovery_sdio_sd.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4_discovery_sdio_sd.d" -MT"Src/stm32f4_discovery_sdio_sd.o" -o "Src/stm32f4_discovery_sdio_sd.o" "../Src/stm32f4_discovery_sdio_sd.c"
+Finished building: ../Src/stm32f4_discovery_sdio_sd.c
+ 
+Building file: ../Src/stm32f4xx_adc.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_adc.d" -MT"Src/stm32f4xx_adc.o" -o "Src/stm32f4xx_adc.o" "../Src/stm32f4xx_adc.c"
+../Src/stm32f4xx_adc.c: In function 'ADC_Init':
+../Src/stm32f4xx_adc.c:239:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_ADC_ALL_PERIPH(ADCx));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_adc.c
+ 
+Building file: ../Src/stm32f4xx_can.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_can.d" -MT"Src/stm32f4xx_can.o" -o "Src/stm32f4xx_can.o" "../Src/stm32f4xx_can.c"
+../Src/stm32f4xx_can.c: In function 'CAN_DeInit':
+../Src/stm32f4xx_can.c:171:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_CAN_ALL_PERIPH(CANx));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_can.c
+ 
+Building file: ../Src/stm32f4xx_crc.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_crc.d" -MT"Src/stm32f4xx_crc.o" -o "Src/stm32f4xx_crc.o" "../Src/stm32f4xx_crc.c"
+Finished building: ../Src/stm32f4xx_crc.c
+ 
+Building file: ../Src/stm32f4xx_cryp.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_cryp.d" -MT"Src/stm32f4xx_cryp.o" -o "Src/stm32f4xx_cryp.o" "../Src/stm32f4xx_cryp.c"
+../Src/stm32f4xx_cryp.c: In function 'CRYP_Init':
+../Src/stm32f4xx_cryp.c:240:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_CRYP_ALGOMODE(CRYP_InitStruct->CRYP_AlgoMode));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_cryp.c
+ 
+Building file: ../Src/stm32f4xx_dac.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_dac.d" -MT"Src/stm32f4xx_dac.o" -o "Src/stm32f4xx_dac.o" "../Src/stm32f4xx_dac.c"
+../Src/stm32f4xx_dac.c: In function 'DAC_Init':
+../Src/stm32f4xx_dac.c:204:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_DAC_TRIGGER(DAC_InitStruct->DAC_Trigger));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_dac.c
+ 
+Building file: ../Src/stm32f4xx_dbgmcu.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_dbgmcu.d" -MT"Src/stm32f4xx_dbgmcu.o" -o "Src/stm32f4xx_dbgmcu.o" "../Src/stm32f4xx_dbgmcu.c"
+../Src/stm32f4xx_dbgmcu.c: In function 'DBGMCU_Config':
+../Src/stm32f4xx_dbgmcu.c:87:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_DBGMCU_PERIPH(DBGMCU_Periph));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_dbgmcu.c
+ 
+Building file: ../Src/stm32f4xx_dcmi.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_dcmi.d" -MT"Src/stm32f4xx_dcmi.o" -o "Src/stm32f4xx_dcmi.o" "../Src/stm32f4xx_dcmi.c"
+Finished building: ../Src/stm32f4xx_dcmi.c
+ 
+Building file: ../Src/stm32f4xx_dma.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_dma.d" -MT"Src/stm32f4xx_dma.o" -o "Src/stm32f4xx_dma.o" "../Src/stm32f4xx_dma.c"
+Finished building: ../Src/stm32f4xx_dma.c
+ 
+Building file: ../Src/stm32f4xx_exti.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_exti.d" -MT"Src/stm32f4xx_exti.o" -o "Src/stm32f4xx_exti.o" "../Src/stm32f4xx_exti.c"
+Finished building: ../Src/stm32f4xx_exti.c
+ 
+Building file: ../Src/stm32f4xx_flash.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_flash.d" -MT"Src/stm32f4xx_flash.o" -o "Src/stm32f4xx_flash.o" "../Src/stm32f4xx_flash.c"
+../Src/stm32f4xx_flash.c: In function 'FLASH_SetLatency':
+../Src/stm32f4xx_flash.c:175:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_FLASH_LATENCY(FLASH_Latency));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_flash.c
+ 
+Building file: ../Src/stm32f4xx_fsmc.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_fsmc.d" -MT"Src/stm32f4xx_fsmc.o" -o "Src/stm32f4xx_fsmc.o" "../Src/stm32f4xx_fsmc.c"
+Finished building: ../Src/stm32f4xx_fsmc.c
+ 
+Building file: ../Src/stm32f4xx_gpio.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_gpio.d" -MT"Src/stm32f4xx_gpio.o" -o "Src/stm32f4xx_gpio.o" "../Src/stm32f4xx_gpio.c"
+Finished building: ../Src/stm32f4xx_gpio.c
+ 
+Building file: ../Src/stm32f4xx_hash.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_hash.d" -MT"Src/stm32f4xx_hash.o" -o "Src/stm32f4xx_hash.o" "../Src/stm32f4xx_hash.c"
+../Src/stm32f4xx_hash.c: In function 'HASH_Init':
+../Src/stm32f4xx_hash.c:200:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_HASH_ALGOSELECTION(HASH_InitStruct->HASH_AlgoSelection));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_hash.c
+ 
+Building file: ../Src/stm32f4xx_i2c.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_i2c.d" -MT"Src/stm32f4xx_i2c.o" -o "Src/stm32f4xx_i2c.o" "../Src/stm32f4xx_i2c.c"
+Finished building: ../Src/stm32f4xx_i2c.c
+ 
+Building file: ../Src/stm32f4xx_it.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_it.d" -MT"Src/stm32f4xx_it.o" -o "Src/stm32f4xx_it.o" "../Src/stm32f4xx_it.c"
+Finished building: ../Src/stm32f4xx_it.c
+ 
+Building file: ../Src/stm32f4xx_iwdg.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_iwdg.d" -MT"Src/stm32f4xx_iwdg.o" -o "Src/stm32f4xx_iwdg.o" "../Src/stm32f4xx_iwdg.c"
+../Src/stm32f4xx_iwdg.c: In function 'IWDG_WriteAccessCmd':
+../Src/stm32f4xx_iwdg.c:138:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_IWDG_WRITE_ACCESS(IWDG_WriteAccess));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_iwdg.c
+ 
+Building file: ../Src/stm32f4xx_pwr.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_pwr.d" -MT"Src/stm32f4xx_pwr.o" -o "Src/stm32f4xx_pwr.o" "../Src/stm32f4xx_pwr.c"
+../Src/stm32f4xx_pwr.c: In function 'PWR_BackupAccessCmd':
+../Src/stm32f4xx_pwr.c:144:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_FUNCTIONAL_STATE(NewState));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_pwr.c
+ 
+Building file: ../Src/stm32f4xx_rcc.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_rcc.d" -MT"Src/stm32f4xx_rcc.o" -o "Src/stm32f4xx_rcc.o" "../Src/stm32f4xx_rcc.c"
+Finished building: ../Src/stm32f4xx_rcc.c
+ 
+Building file: ../Src/stm32f4xx_rng.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_rng.d" -MT"Src/stm32f4xx_rng.o" -o "Src/stm32f4xx_rng.o" "../Src/stm32f4xx_rng.c"
+../Src/stm32f4xx_rng.c: In function 'RNG_Cmd':
+../Src/stm32f4xx_rng.c:118:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_FUNCTIONAL_STATE(NewState));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_rng.c
+ 
+Building file: ../Src/stm32f4xx_rtc.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_rtc.d" -MT"Src/stm32f4xx_rtc.o" -o "Src/stm32f4xx_rtc.o" "../Src/stm32f4xx_rtc.c"
+../Src/stm32f4xx_rtc.c: In function 'RTC_Init':
+../Src/stm32f4xx_rtc.c:460:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_RTC_HOUR_FORMAT(RTC_InitStruct->RTC_HourFormat));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_rtc.c
+ 
+Building file: ../Src/stm32f4xx_sdio.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_sdio.d" -MT"Src/stm32f4xx_sdio.o" -o "Src/stm32f4xx_sdio.o" "../Src/stm32f4xx_sdio.c"
+Finished building: ../Src/stm32f4xx_sdio.c
+ 
+Building file: ../Src/stm32f4xx_spi.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_spi.d" -MT"Src/stm32f4xx_spi.o" -o "Src/stm32f4xx_spi.o" "../Src/stm32f4xx_spi.c"
+Finished building: ../Src/stm32f4xx_spi.c
+ 
+Building file: ../Src/stm32f4xx_syscfg.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_syscfg.d" -MT"Src/stm32f4xx_syscfg.o" -o "Src/stm32f4xx_syscfg.o" "../Src/stm32f4xx_syscfg.c"
+../Src/stm32f4xx_syscfg.c: In function 'SYSCFG_MemoryRemapConfig':
+../Src/stm32f4xx_syscfg.c:111:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_SYSCFG_MEMORY_REMAP_CONFING(SYSCFG_MemoryRemap));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_syscfg.c
+ 
+Building file: ../Src/stm32f4xx_tim.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_tim.d" -MT"Src/stm32f4xx_tim.o" -o "Src/stm32f4xx_tim.o" "../Src/stm32f4xx_tim.c"
+../Src/stm32f4xx_tim.c: In function 'TIM_DeInit':
+../Src/stm32f4xx_tim.c:203:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_TIM_ALL_PERIPH(TIMx));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_tim.c
+ 
+Building file: ../Src/stm32f4xx_usart.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_usart.d" -MT"Src/stm32f4xx_usart.o" -o "Src/stm32f4xx_usart.o" "../Src/stm32f4xx_usart.c"
+../Src/stm32f4xx_usart.c: In function 'USART_DeInit':
+../Src/stm32f4xx_usart.c:187:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_usart.c
+ 
+Building file: ../Src/stm32f4xx_wwdg.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f4xx_wwdg.d" -MT"Src/stm32f4xx_wwdg.o" -o "Src/stm32f4xx_wwdg.o" "../Src/stm32f4xx_wwdg.c"
+../Src/stm32f4xx_wwdg.c: In function 'WWDG_SetPrescaler':
+../Src/stm32f4xx_wwdg.c:160:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_WWDG_PRESCALER(WWDG_Prescaler));
+   ^~~~~~~~~~~~
+Finished building: ../Src/stm32f4xx_wwdg.c
+ 
+Building file: ../Src/system_stm32f4xx.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/system_stm32f4xx.d" -MT"Src/system_stm32f4xx.o" -o "Src/system_stm32f4xx.o" "../Src/system_stm32f4xx.c"
+../Src/system_stm32f4xx.c: In function 'SetSysClock':
+../Src/system_stm32f4xx.c:423:5: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+     while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
+     ^~~~~
+../Src/system_stm32f4xx.c:424:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+     {
+     ^
+Finished building: ../Src/system_stm32f4xx.c
+ 
+Building target: OV9655_Camera.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "OV9655_Camera.elf" @"objects.list"   -lm
+Finished building target: OV9655_Camera.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "OV9655_Camera.elf" "OV9655_Camera.hex"
+arm-none-eabi-size "OV9655_Camera.elf"
+   text	   data	    bss	    dec	    hex	filename
+  32936	    236	   3436	  36608	   8f00	OV9655_Camera.elf
+ 
+18:22:15 **** Incremental Build of configuration Debug for project OV9655_Camera ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:121:34: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+   LCD_DisplayStringLine(LINE(2), "   Camera Init Damith..");
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:126:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(2), "                ");
+                                    ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:166:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(2), "Camera Init.. fails");
+                                    ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:167:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(4), "Check the Camera HW ");
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:168:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(5), "  and try again ");
+                                    ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: OV9655_Camera.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "OV9655_Camera.elf" @"objects.list"   -lm
+Finished building target: OV9655_Camera.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "OV9655_Camera.elf" "OV9655_Camera.hex"
+arm-none-eabi-size "OV9655_Camera.elf"
+   text	   data	    bss	    dec	    hex	filename
+  32940	    236	   3436	  36612	   8f04	OV9655_Camera.elf
+ 
+18:22:43 **** Incremental Build of configuration Debug for project OV9655_Camera ****
+make all 
+make: Nothing to be done for 'all'.
+18:24:04 **** Incremental Build of configuration Debug for project OV9655_Camera ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\damit\Desktop\STM32F\STM32FDIS-BB\My_Projects\Camera_with STM32FDIS-BB\STM32FDIS-BB\Camera_New\Project\OV9655_Camera\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:121:34: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+   LCD_DisplayStringLine(LINE(2), "   Camera Init..");
+                                  ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:126:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(2), "                ");
+                                    ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:166:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(2), "Camera Init.. fails");
+                                    ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:167:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(4), "Check the Camera HW ");
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:168:36: warning: pointer targets in passing argument 2 of 'LCD_DisplayStringLine' differ in signedness [-Wpointer-sign]
+     LCD_DisplayStringLine(LINE(5), "  and try again ");
+                                    ^~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:45:0:
+C:/Users/damit/Desktop/STM32F/STM32FDIS-BB/My_Projects/Camera_with STM32FDIS-BB/STM32FDIS-BB/Camera_New/Project/OV9655_Camera/Inc/stm32f4_discovery_lcd.h:302:6: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ void LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr);
+      ^~~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: OV9655_Camera.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "OV9655_Camera.elf" @"objects.list"   -lm
+Finished building target: OV9655_Camera.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "OV9655_Camera.elf" "OV9655_Camera.hex"
+arm-none-eabi-size "OV9655_Camera.elf"
+   text	   data	    bss	    dec	    hex	filename
+  32936	    236	   3436	  36608	   8f00	OV9655_Camera.elf
+ 
